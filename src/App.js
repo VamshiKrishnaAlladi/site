@@ -2,14 +2,10 @@ import React from 'react';
 
 import './App.css';
 
-const App = () => (
+import { Banner } from './components/Banner';
+
+export const App = () => (
     <div className="app">
-        <div className="broadcast-message">
-            Coming soon. Hold on tight.
-            <br/>
-            <span role="img" aria-label="horse racing emoji">🏇</span>
-        </div>
+        <Banner/>
     </div>
 );
-
-export default App;
