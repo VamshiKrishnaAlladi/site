@@ -1,16 +1,16 @@
 :root {
-    --theme-color-red: #FF315D;
-    --theme-color-green: #AFCA0A;
-    --theme-color-blue: #3CC6EB;
-    --theme-color-yellow: #FFD900;
-    --theme-color-cherry: #D32E65;
-    --theme-color-light-blue: #6A5AFB;
-    --theme-color-electric-blue: #025189;
-    --theme-color-grey: #555555;
-    --theme-color-white: #FFFFFF;
+    --theme-red: #FF315D;
+    --theme-green: #AFCA0A;
+    --theme-blue: #3CC6EB;
+    --theme-yellow: #FFD900;
+    --theme-cherry: #D32E65;
+    --theme-light-blue: #6A5AFB;
+    --theme-electric-blue: #025189;
+    --theme-grey: #555555;
+    --theme-white: #FFFFFF;
 
-    --theme-bg: var(--theme-color-white);
-    --theme-text-color: var(--theme-color-grey);
+    --theme-bg: var(--theme-white);
+    --theme-text-color: var(--theme-grey);
 }
 
 .app {
