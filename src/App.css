@@ -1,11 +1,13 @@
 :root {
     --theme-red: #FF315D;
-    --theme-green: #AFCA0A;
-    --theme-blue: #3CC6EB;
-    --theme-yellow: #FFD900;
-    --theme-cherry: #D32E65;
-    --theme-light-blue: #6A5AFB;
-    --theme-electric-blue: #025189;
+    --theme-green: #8BC34A;
+    --theme-blue: #00BCD4;
+    --theme-yellow: #FBC02D;
+    --theme-cherry: #EC407A;
+    --theme-purple: #BA68C8;
+    --theme-orange: #FF7043;
+    --theme-indigo: #5C6BC0;
+    --theme-light-blue: #29B6F6;
     --theme-grey: #555555;
     --theme-white: #FFFFFF;
 
@@ -21,4 +23,13 @@
     color: var(--theme-text-color);
     overflow-x: hidden;
     overflow-y: hidden;
+}
+
+.menu-btn {
+    position: absolute;
+    right: 5vmin;
+    top: 5vmin;
+    width: 10vmin;
+    height: 10vmin;
+    cursor: pointer;
 }

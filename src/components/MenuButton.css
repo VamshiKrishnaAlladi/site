@@ -1,0 +1,10 @@
+#border {
+    fill: none;
+    stroke: var(--theme-grey);
+    stroke-width: 15;
+    stroke-dasharray: 30;
+}
+
+#letters {
+    fill: var(--theme-grey);
+}
