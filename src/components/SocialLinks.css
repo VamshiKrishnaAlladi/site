@@ -1,44 +1,51 @@
 .social-links {
     position: absolute;
-    right: 20px;
-    bottom: 20px;
 
-    display: grid;
-    grid: auto-flow / 1fr;
+    bottom: 5vh;
+    left: 5vh;
 
-    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: row;
+}
+
+.link {
+    margin: 0px 10px;
+    padding: 0px 10px;
+
+    font-family: 'Sarpanch', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+
     cursor: pointer;
 }
 
-.social-links .link {
-    margin: 10px;
-
-    height: 40px;
-
-    display: none;
-    visibility: hidden;
-    opacity: 0;
+.link a {
+    text-decoration: none;
+    color: var(--theme-grey);
 }
 
-.social-links .link a {
-    height: 40px;
+.link:hover a{
+    color: white;
 }
 
-.social-links .link img {
-    width: 40px;
-    height: 40px;
+#github:hover {
+    background-color: #333333;
+    /* this is github's brand color */
 }
 
-.social-links .follow {
-    width: 40px;
-    height: 40px;
-    margin: 10px;
+#twitter:hover {
+    background-color: #1da1f2;
+    /* this is twitter's brand color */
 }
 
-.hidden {
-    display: none;
+#instagram:hover {
+    background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #f56040, #f77737, #fcaf45, #ffdc80 );
+    /* these are instagram's brand color */
 }
 
-.show {
-    display: block;
+#linkedin:hover {
+    background-color: #0077b5;
+    /* this is linkedin's brand color */
 }
