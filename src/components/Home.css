@@ -1,0 +1,58 @@
+.container {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    height: 100vh;
+    width: 100vw;
+
+    white-space: nowrap;
+}
+
+.logo-scene {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-scene>.banner {
+    width: 50%;
+    height: 50%;
+}
+
+.main-scene {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.cursor {
+    animation: blink 1s linear infinite;
+    margin-left: 5px;
+}
+
+@keyframes blink {
+    0%{ opacity: 1; }
+    48%{ opacity: 0; }
+    52%{ opacity: 0; }
+    100%{ opacity: 1; }
+}
+
+.intro .name {
+    font-size: 75px;
+}
