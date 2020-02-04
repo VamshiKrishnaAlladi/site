@@ -2,8 +2,8 @@ import React from "react";
 
 import "./SocialLinks.css";
 
-export const SocialLinks = () => (
-    <div className="social-links" id="links" >
+export const SocialLinks = ({ className }) => (
+    <div className={`links ${className}`} id="links" >
         <div id="twitter" className="link" >
             <a href="https://twitter.com/vka_me" target="_blank"
                 rel="noopener noreferrer">
