@@ -42,13 +42,16 @@
     background: var(--theme-white);
     box-shadow: 0px 0px 150px var(--theme-grey);
 
-    display: flex;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 2fr 2fr 1fr;
+
     justify-content: center;
     align-items: center;
 }
 
 .choice {
-    margin: 50px;
+    margin: auto;
     height: 10vh;
     width: 15vw;
 
@@ -67,6 +70,14 @@
     cursor: pointer;
 
     transition: background 0.3s ease;
+}
+
+#first-choice {
+    grid-column: 2;
+}
+
+#second-choice {
+    grid-column: 3;
 }
 
 .crossword {

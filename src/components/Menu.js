@@ -2,12 +2,13 @@ import React from 'react';
 
 import "./Menu.css";
 
-export const Menu = ( { onClose: closeMenu } ) => {
+export const Menu = ( { onClose: closeMenu, history } ) => {
     const [ isChoiceGiven, setIsChoiceGiven ] = React.useState( false );
 
     const redirectTo = ( route ) => {
         console.log( `redirecting to "${route}"` );
         closeMenu();
+        history.push(`/${(route === "home") ? "" : route}`);
     };
 
     const handleLetterClick = ( clickEvent ) => {

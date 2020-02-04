@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 
 import { Menu } from "./Menu";
 
@@ -10,6 +11,8 @@ export const MenuButton = ( { className } ) => {
     const handleMenuClick = () => { if ( isMenuMinimized ) { setIsMenuMinimized( val => !val ); } };
 
     const handleMenuClose = () => { if ( !isMenuMinimized ) { setIsMenuMinimized( val => !val ); } };
+
+    const MenuWithRouter = withRouter(Menu);
 
     return ( <>
         <div className={className} onClick={handleMenuClick}>
@@ -54,7 +57,8 @@ export const MenuButton = ( { className } ) => {
                     </g>
                 </g>
             </svg>
+            <span className="menu-btn-label" >Menu</span>
         </div>
-        {!isMenuMinimized && <Menu onClose={handleMenuClose} />}
+        {!isMenuMinimized && <MenuWithRouter onClose={handleMenuClose} />}
     </> );
 };

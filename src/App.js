@@ -1,15 +1,25 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import { Home, MenuButton, UnderConstruction, PageNotFound, SocialLinks, Contact, About, Blog, Projects, Resume } from './components';
 
 import './App.css';
 
-import { Banner } from './components/Banner';
-import { SocialLinks } from './components/SocialLinks';
-import { MenuButton } from './components/MenuButton';
-
 export const App = () => (
     <div className="app">
-        <Banner />
-        <SocialLinks />
-        <MenuButton className="menu-btn" />
+        <Router>
+            <Switch>
+                <Route path="/" exact component={Home} />
+                <Route path="/about" component={About} />
+                <Route path="/blog" component={Blog} />
+                <Route path="/contact" component={Contact} />
+                <Route path="/projects" component={Projects} />
+                <Route path="/resume" component={Resume} />
+                <Route path={[]} component={UnderConstruction} />
+                <Route component={PageNotFound} />
+            </Switch>
+            <MenuButton className="menu-btn" />
+            <SocialLinks className="social"/>
+        </Router>
     </div>
 );
