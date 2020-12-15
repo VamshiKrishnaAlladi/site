@@ -18,8 +18,8 @@ export const App = () => (
                 <Route path={[]} component={UnderConstruction} />
                 <Route component={PageNotFound} />
             </Switch>
-            <MenuButton className="menu-btn" />
             <SocialLinks className="social"/>
+            <MenuButton className="menu-btn" />
         </Router>
     </div>
 );
