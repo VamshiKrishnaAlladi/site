@@ -5,41 +5,6 @@ import "./Menu.css";
 export const Menu = ( { onClose: closeMenu, history } ) => {
     const [ isChoiceGiven, setIsChoiceGiven ] = React.useState( false );
 
-    const redirectTo = ( route ) => {
-        console.log( `redirecting to "${route}"` );
-        closeMenu();
-        history.push(`/${(route === "home") ? "" : route}`);
-    };
-
-    const handleLetterClick = ( clickEvent ) => {
-        const [ firstRoute, secondRoute ] = Object.keys( clickEvent.target.dataset );
-
-        if ( secondRoute ) {
-            setIsChoiceGiven( true );
-
-            const firstChoice = document.getElementById( "first-choice" );
-
-            firstChoice.innerText = firstRoute;
-            firstChoice.addEventListener( "mouseenter", () => { firstChoice.classList.add( firstRoute ); } );
-            firstChoice.addEventListener( "mouseleave", () => { firstChoice.classList.remove( firstRoute ); } );
-            firstChoice.addEventListener( "click", () => { redirectTo( firstRoute ); } );
-
-            const secondChoice = document.getElementById( "second-choice" );
-
-            secondChoice.innerText = secondRoute;
-            secondChoice.addEventListener( "mouseenter", () => { secondChoice.classList.add( secondRoute ); } );
-            secondChoice.addEventListener( "mouseleave", () => { secondChoice.classList.remove( secondRoute ); } );
-            secondChoice.addEventListener( "click", () => { redirectTo( secondRoute ); } );
-
-            document.getElementById( "choice-overlay-bg" )
-                .addEventListener( "click", () => { setIsChoiceGiven( false ); } );
-
-            return;
-        }
-
-        redirectTo( firstRoute );
-    };
-
     React.useEffect(() => {
         const handleEsc = ( event ) => {
             if ( event.key === "Escape" ) {
@@ -58,19 +23,53 @@ export const Menu = ( { onClose: closeMenu, history } ) => {
     React.useEffect( () => {
         const letters = document.querySelectorAll( "#crossword .letter" );
 
+        const redirectTo = ( route ) => {
+            closeMenu();
+            history.push(`/${(route === "home") ? "" : route}`);
+        };
+
+        const handleLetterClick = ( clickEvent ) => {
+            const [ firstRoute, secondRoute ] = Object.keys( clickEvent.target.dataset );
+
+            if ( secondRoute ) {
+                setIsChoiceGiven( true );
+
+                const firstChoice = document.getElementById( "first-choice" );
+
+                firstChoice.innerText = firstRoute;
+                firstChoice.addEventListener( "mouseenter", () => { firstChoice.classList.add( firstRoute ); } );
+                firstChoice.addEventListener( "mouseleave", () => { firstChoice.classList.remove( firstRoute ); } );
+                firstChoice.addEventListener( "click", () => { redirectTo( firstRoute ); } );
+
+                const secondChoice = document.getElementById( "second-choice" );
+
+                secondChoice.innerText = secondRoute;
+                secondChoice.addEventListener( "mouseenter", () => { secondChoice.classList.add( secondRoute ); } );
+                secondChoice.addEventListener( "mouseleave", () => { secondChoice.classList.remove( secondRoute ); } );
+                secondChoice.addEventListener( "click", () => { redirectTo( secondRoute ); } );
+
+                document.getElementById( "choice-overlay-bg" )
+                    .addEventListener( "click", () => { setIsChoiceGiven( false ); } );
+
+                return;
+            }
+
+            redirectTo( firstRoute );
+        };
+
         const handleMouseEnter = ( enterEvent ) => {
             const words = Object.keys( enterEvent.target.dataset );
 
             let lettersToNormalize = [];
 
             words.forEach( word => {
-                const ltrs = document.querySelectorAll( `[data-${word}]` );
+                const letters = document.querySelectorAll( `[data-${word}]` );
 
-                ltrs.forEach( ltr => {
-                    ltr.classList.add( word );
+                letters.forEach( letter => {
+                    letter.classList.add( word );
                 } );
 
-                lettersToNormalize = [ ...lettersToNormalize, ...ltrs ];
+                lettersToNormalize = [ ...lettersToNormalize, ...letters ];
             } );
 
             enterEvent.target.addEventListener( "mouseleave", () => {
@@ -89,7 +88,7 @@ export const Menu = ( { onClose: closeMenu, history } ) => {
                 letter.removeEventListener( "click", handleLetterClick );
             } );
         };
-    }, [] );
+    }, [closeMenu, history] );
 
     return (
         <div className="menu" id="menu">
@@ -132,7 +131,7 @@ export const Menu = ( { onClose: closeMenu, history } ) => {
             {isChoiceGiven && ( <>
                 <div id="choice-overlay-bg" />
                 <div className="choice-overlay">
-                    <div className="choice" id="first-choice">Frist</div>
+                    <div className="choice" id="first-choice">First</div>
                     <div className="choice" id="second-choice">Second</div>
                 </div>
             </> )}
